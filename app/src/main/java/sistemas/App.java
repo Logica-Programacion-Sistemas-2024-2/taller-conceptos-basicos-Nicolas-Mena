@@ -21,7 +21,11 @@ public class App {
         try {
          double mtseg = kmPorSeg * 1000 ;
          
-         return(kmPorSeg + "es igual a " +mtseg );
+        double mthora = mtseg * 3600;
+        
+        return (mtseg + "|" + mthora);
+         
+
 
         } catch (Exception e) {
             return "Error: " + e.getMessage();
@@ -44,7 +48,7 @@ public class App {
     public static String convertirDolaresAPesos(double dolares, double trm) {
         try {
             double pesos = dolares * trm;
-            return (dolares + " dólares son iguales a " + pesos + " pesos");
+            return ((int)dolares + " dólares son iguales a " + (int)pesos + " pesos");
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
@@ -55,7 +59,7 @@ public class App {
     public static String convertirCelsiusAFahrenheit(double celsius) {
         try {
             double fahrenheit = 32 + (9 * celsius / 5);
-            return (celsius + " grados centígrados son iguales a " + fahrenheit + " grados Fahrenheit");
+            return ((int)celsius + " grados centígrados son iguales a " + (int)fahrenheit + " grados Fahrenheit");
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
@@ -66,7 +70,7 @@ public class App {
     public static String convertirATotalSegundos(int dias, int horas, int minutos, int segundos) {
         try {
             int totalSegundos = (dias * 24 * 60 * 60) + (horas * 60 * 60) + (minutos * 60) + segundos;
-            return (dias + " días, " + horas + " horas, " + minutos + " minutos, " + segundos + " segundos son iguales a " + totalSegundos + " segundos");
+            return ((int)dias + " días, " + (int)horas + " horas, " + (int)minutos + " minutos, " + (int)segundos + " segundos son iguales a " + (int)totalSegundos + " segundos");
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
@@ -79,7 +83,7 @@ public class App {
         try {
             double pesoEnKg = peso;
             double pesoEnToneladas = pesoEnKg / 1000;
-            return (pesoEnKg + " kilos|toneladas " + pesoEnToneladas);
+            return ((int)pesoEnKg + " kilos|toneladas " + (int)pesoEnToneladas);
         } catch (Exception e) {
             return "0|0";
         }
@@ -90,7 +94,7 @@ public class App {
     public static String calcularTiempoViaje(double distancia, double velocidadKilometros, double velocidadHora) {
         try {
             double tiempo = distancia / velocidadKilometros;
-            return (distancia + "kilometros a una velocidad de " + velocidadKilometros + "km/h se completarian en " + tiempo + " horas");
+            return ((int)distancia + "kilometros a una velocidad de " + (int)velocidadKilometros + "km/h se completarian en " + (int)tiempo + " horas");
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
@@ -101,7 +105,7 @@ public class App {
     public static String calcularCombustible(double ruta1, double ruta2, double ruta3, double ruta4)  {
         try {
             double combustible = (ruta1 + ruta2 + ruta3 + ruta4) + (ruta1 + ruta2 + ruta3 + ruta4) * 0.2+((1.2 + 0.4)* 4);
-            return (combustible + "toneladas de combustible");
+            return ((int)combustible + "toneladas de combustible");
         
         } catch (Exception e) {
             return "Error: " + e.getMessage();
@@ -113,7 +117,7 @@ public class App {
     public static String calcularPesoLunar(double pesoTierra) {
         try {
             double pesoLuna = pesoTierra * 0.17;
-            return (pesoTierra + "kilos en la tierra son " + pesoLuna + "kilos en la luna" );
+            return ((int)pesoTierra + "kilos en la tierra son " + (int)pesoLuna + "kilos en la luna" );
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
@@ -124,7 +128,7 @@ public class App {
     public static String calcularSaldoTaquilla(double base, double ingresos, double retiros) {
         try {
            double saldo = base + ingresos - retiros;
-            return ("en base a los movimientos el saldo es " + saldo);
+            return ("en base a los movimientos el saldo es " +(int)saldo );
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
@@ -138,7 +142,7 @@ public class App {
         double impuesto = costoComida * 0.08;
         double propina = costoComida * 0.10;
         double total = costoComida + impuesto + propina;
-        return (propina + "|" + impuesto + "|" + total);
+        return ( (int)propina + "|" + (int)impuesto + "|" +(int)total);
 
         } catch (Exception e) {
             return -1 + "|" + -1 + "|" + -1;
@@ -150,7 +154,7 @@ public class App {
     public static String calcularPuntosFutbol(int ganados, int perdidos, int empatados) {
         try {
             int puntos = ganados * 3 + empatados*1;
-            return (ganados + "partidos ganados, " + perdidos + "partidosperdidos, " + empatados + "partidos empatados dan como resultado " + puntos + " puntos");
+            return ((int)ganados + "partidos ganados, " + (int)perdidos + "partidosperdidos, " + (int)empatados + "partidos empatados dan como resultado " + (int)puntos + " puntos");
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
@@ -162,7 +166,7 @@ public class App {
                                         double porcentaje1, double porcentaje2, double porcentaje3, double porcentaje4, double porcentaje5) {
         try {
             double notaFinal = (nota1 * porcentaje1 + nota2 * porcentaje2 +nota3 * porcentaje3 + nota4 * porcentaje4 + nota5 * porcentaje5) / 5;
-            return ("tu nota final es : " + notaFinal);
+            return ("tu nota final es : " + (int)notaFinal);
 
         } catch (Exception e) {
             return "Error: " + e.getMessage();
@@ -177,7 +181,7 @@ public class App {
          if( notaFinal<3 )
          {
             double notaNecesaria = 3 - notaFinal * porcentaje5;
-            return ("Tienes que sacar " + notaNecesaria + " en la quinta nota para ganar");
+            return ("Tienes que sacar " + (int)notaNecesaria + " en la quinta nota para ganar");
             }
             else
         {
@@ -193,7 +197,7 @@ public class App {
     public static String calcularSalario(int horasNormales, int horasExtrasDiurnas, int horasExtrasNocturnas, double valorHoraNormal) {
         try {
            double salario = horasNormales * valorHoraNormal + horasExtrasDiurnas * valorHoraNormal * 1.15 + horasExtrasNocturnas * valorHoraNormal *1.35;
-           return ("El salario a pagar es: " + salario);
+           return ("El salario a pagar es: " + (int)salario);
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
@@ -204,7 +208,7 @@ public class App {
     public static String calcularAreaTriangulo(double base, double altura) {
         try {
             double area=  Math. pow(base , 2)+  Math. pow(altura , 2);
-            return ("El área del triángulo es: " + area);
+            return ("El área del triángulo es: " + (int)area);
             
         } catch (Exception e) {
             return "Error: "+e.getMessage();
@@ -216,7 +220,7 @@ public class App {
     public static String calcularPerimetroCuadrado(double lado) {
         try {
             double perimetro = 4 * lado;
-            return ("El perímetro del cuadrado es: " + perimetro);
+            return ("El perímetro del cuadrado es: " + (int)perimetro);
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
@@ -227,7 +231,7 @@ public class App {
     public static String calcularVolumenCilindro(double radio, double altura) {
         try {
             double volumen = Math.PI * Math.pow(radio, 2) * altura;
-            return ("El volumen del cilindro es: " + volumen);
+            return ("El volumen del cilindro es: " + (int)volumen);
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
@@ -238,7 +242,7 @@ public class App {
     public static String calcularAreaCirculo(double radio) {
         try {
             double area = Math.PI * Math.pow(radio, 2);
-            return ("El área del círculo es: " + area);
+            return ("El área del círculo es: " + (int)area);
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
