@@ -9,7 +9,7 @@ public class App {
     // Diseñe un algoritmo para saludar al usuario: Hola usuario. El nombre del usuario es ingresado por teclado
     public static String saludarUsuario(String nombre) {
         try {
-            return ("Hola "+nombre);
+          return ("Hola " + nombre);
         } catch (Exception e) {
             return "Error: " + e.getMessage();
         }
