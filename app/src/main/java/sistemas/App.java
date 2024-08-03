@@ -98,9 +98,9 @@ public class App {
     }
 
     // Un avión necesita cargar combustible para cubrir sus rutas programadas en el día. Cada 0.2 toneladas de combustible puede recorrer 60.8 Km en velocidad de crucero. En el despegue el avión consume 1.2 toneladas de combustible y en el aterrizaje consume 0.4 toneladas. El piloto desea un algoritmo que ingresando 4 rutas y el kilometraje de cada ruta obtenga la cantidad de combustible que debe tanquear en el avión.
-    public static String calcularCombustible(double ruta1, double ruta2, double ruta3, double ruta4, double numeroderutas)  {
+    public static String calcularCombustible(double ruta1, double ruta2, double ruta3, double ruta4)  {
         try {
-            double combustible = (ruta1 + ruta2 + ruta3 + ruta4) + (ruta1 + ruta2 + ruta3 + ruta4) * 0.2+((1.2 + 0.4)* numeroderutas);
+            double combustible = (ruta1 + ruta2 + ruta3 + ruta4) + (ruta1 + ruta2 + ruta3 + ruta4) * 0.2+((1.2 + 0.4)* 4);
             return (combustible + "toneladas de combustible");
         
         } catch (Exception e) {
