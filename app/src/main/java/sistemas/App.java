@@ -23,7 +23,7 @@ public class App {
          
         double mthora = mtseg * 3600;
         
-        return (mtseg + "|" + mthora);
+        return ((int)mtseg + "|" +(int) mthora);
          
 
 
@@ -34,45 +34,46 @@ public class App {
     }
 
     // Solicitar al usuario ingresar una cantidad expresada en cc (centímetros cúbicos) y devolver su cantidad en litros
-    public static String convertirCcALitros(double cc) {
+    public static int convertirCcALitros(double cc) {
         try {
             double litros = cc / 1000;
-            return (cc + " cc son iguales a " + litros + " litros");
+            return ((int)litros );
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
 
     }
 
     // Solicitar al usuario ingresar una cantidad en dólares y convertirla a pesos según la TRM del día
-    public static String convertirDolaresAPesos(double dolares, double trm) {
+    public static int convertirDolaresAPesos(double dolares, double trm) {
         try {
             double pesos = dolares * trm;
-            return ((int)dolares + " dólares son iguales a " + (int)pesos + " pesos");
+            return ((int)pesos);
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+        
+            return 0;
         }
   
     }
 
     // Solicitar al usuario ingresar la temperatura en grados centígrados y convertirla en grados Fahrenheit (averiguar la fórmula) F = 32 + ( 9 * C / 5)
-    public static String convertirCelsiusAFahrenheit(double celsius) {
+    public static int convertirCelsiusAFahrenheit(double celsius) {
         try {
             double fahrenheit = 32 + (9 * celsius / 5);
-            return ((int)celsius + " grados centígrados son iguales a " + (int)fahrenheit + " grados Fahrenheit");
+            return ((int)fahrenheit);
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
     
     }
 
     // Solicitar al usuario ingresar Nro de Días nro de horas nro de minutos y nro segundos y convertir todo a segundos.
-    public static String convertirATotalSegundos(int dias, int horas, int minutos, int segundos) {
+    public static int convertirATotalSegundos(int dias, int horas, int minutos, int segundos) {
         try {
             int totalSegundos = (dias * 24 * 60 * 60) + (horas * 60 * 60) + (minutos * 60) + segundos;
-            return ((int)dias + " días, " + (int)horas + " horas, " + (int)minutos + " minutos, " + (int)segundos + " segundos son iguales a " + (int)totalSegundos + " segundos");
+            return ((int)totalSegundos );
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
     
     }
@@ -83,7 +84,7 @@ public class App {
         try {
             double pesoEnKg = peso;
             double pesoEnToneladas = pesoEnKg / 1000;
-            return ((int)pesoEnKg + " kilos|toneladas " + (int)pesoEnToneladas);
+            return ((int)pesoEnKg + " |" + (int)pesoEnToneladas );
         } catch (Exception e) {
             return "0|0";
         }
@@ -91,46 +92,46 @@ public class App {
     }
 
     // Diseñe un algoritmo que calcule el tiempo necesario para alcanzar un destino dado por el usuario quien además ingresará la velocidad promedio en kilómetros/hora y la distancia en kilómetros
-    public static String calcularTiempoViaje(double distancia, double velocidadKilometros, double velocidadHora) {
+    public static int calcularTiempoViaje(double distancia, double velocidadKilometros, double velocidadHora) {
         try {
             double tiempo = distancia / velocidadKilometros;
-            return ((int)distancia + "kilometros a una velocidad de " + (int)velocidadKilometros + "km/h se completarian en " + (int)tiempo + " horas");
+            return ( (int)tiempo );
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
       
     }
 
     // Un avión necesita cargar combustible para cubrir sus rutas programadas en el día. Cada 0.2 toneladas de combustible puede recorrer 60.8 Km en velocidad de crucero. En el despegue el avión consume 1.2 toneladas de combustible y en el aterrizaje consume 0.4 toneladas. El piloto desea un algoritmo que ingresando 4 rutas y el kilometraje de cada ruta obtenga la cantidad de combustible que debe tanquear en el avión.
-    public static String calcularCombustible(double ruta1, double ruta2, double ruta3, double ruta4)  {
+    public static int calcularCombustible(double ruta1, double ruta2, double ruta3, double ruta4)  {
         try {
-            double combustible = (ruta1 + ruta2 + ruta3 + ruta4) + (ruta1 + ruta2 + ruta3 + ruta4) * 0.2+((1.2 + 0.4)* 4);
-            return ((int)combustible + "toneladas de combustible");
+            double combustible = (ruta1 + ruta2 + ruta3 + ruta4) * 0.2+((1.2 + 0.4)* 4);
+            return ((int)combustible );
         
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
         
     }
 
     // Diseñar un algoritmo que calcule el peso neto en la luna de un peso terrestre ingresado por teclado. La gravedad de la Luna es de alrededor del 17% más que la de la tierra
-    public static String calcularPesoLunar(double pesoTierra) {
+    public static int calcularPesoLunar(double pesoTierra) {
         try {
             double pesoLuna = pesoTierra * 0.17;
-            return ((int)pesoTierra + "kilos en la tierra son " + (int)pesoLuna + "kilos en la luna" );
+            return ((int)pesoLuna );
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
         
     }
 
     // Diseñar un algoritmo que calcule el saldo que debe haber en una taquilla de un banco. El cajero deberá ingresar la base el total de recaudos y el total de retiros
-    public static String calcularSaldoTaquilla(double base, double ingresos, double retiros) {
+    public static int calcularSaldoTaquilla(double base, double ingresos, double retiros) {
         try {
            double saldo = base + ingresos - retiros;
-            return ("en base a los movimientos el saldo es " +(int)saldo );
+            return (+(int)saldo );
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
        
     }
@@ -151,100 +152,96 @@ public class App {
     }
 
     // Diseñar un algoritmo que obtenga los puntos finales de un equipo de fútbol (puntuación según lineamientos de Fifa) a partir de los datos ingresados por teclado: Número de partidos ganados número de partidos perdidos número de partidos empatados.
-    public static String calcularPuntosFutbol(int ganados, int perdidos, int empatados) {
+    public static int calcularPuntosFutbol(int ganados, int perdidos, int empatados) {
         try {
             int puntos = ganados * 3 + empatados*1;
-            return ((int)ganados + "partidos ganados, " + (int)perdidos + "partidosperdidos, " + (int)empatados + "partidos empatados dan como resultado " + (int)puntos + " puntos");
+            return ((int)puntos );
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
         
     }
 
     // Elaborar un algoritmo que dadas todas las 5 notas y los 5 porcentajes para una materia calcule la nota final.
-    public static String calcularNotaFinal(double nota1, double nota2, double nota3, double nota4, double nota5,
+    public static int calcularNotaFinal(double nota1, double nota2, double nota3, double nota4, double nota5,
                                         double porcentaje1, double porcentaje2, double porcentaje3, double porcentaje4, double porcentaje5) {
         try {
             double notaFinal = (nota1 * porcentaje1 + nota2 * porcentaje2 +nota3 * porcentaje3 + nota4 * porcentaje4 + nota5 * porcentaje5) / 5;
-            return ("tu nota final es : " + (int)notaFinal);
+            return ((int)notaFinal);
 
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
        
     }
 
     // Elaborar un algoritmo que dados los 5 porcentajes de una materia y las 4 primeras notas calcule cuánto tiene que sacar para ganar si el puntaje mínimo es 3.
-    public static String calcularNotaNecesaria(double porcentaje1, double porcentaje2, double porcentaje3, double porcentaje4, double porcentaje5, double nota1, double nota2, double nota3, double nota4) {
+    public static int calcularNotaNecesaria(double porcentaje1, double porcentaje2, double porcentaje3, double porcentaje4, double porcentaje5, double nota1, double nota2, double nota3, double nota4) {
         try {
             double notaFinal = (nota1 * porcentaje1 + nota2 * porcentaje2 + nota3 * porcentaje3 + nota4 * porcentaje4) / 4;
-         if( notaFinal<3 )
          {
             double notaNecesaria = 3 - notaFinal * porcentaje5;
-            return ("Tienes que sacar " + (int)notaNecesaria + " en la quinta nota para ganar");
-            }
-            else
-        {
-            return ("Ya tienes suficiente nota para ganar la materia");
+            return ((int)notaNecesaria );
+
             }
         
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
     }
 
     // Se requiere un algoritmo para calcular el salario a pagar a un trabajador con los siguientes datos ingresados por teclado: cantidad de horas normales laboradas cantidad de horas extras diurnas laboradas cantidad de horas extras nocturnas laboradas valor de la hora normal. El valor de las horas extras diurnas tienen un recargo adicional del 15% sobre la hora normal. El valor de las horas extras nocturnas tienen un recargo adicional del 35% sobre la hora normal.
-    public static String calcularSalario(int horasNormales, int horasExtrasDiurnas, int horasExtrasNocturnas, double valorHoraNormal) {
+    public static int calcularSalario(int horasNormales, int horasExtrasDiurnas, int horasExtrasNocturnas, double valorHoraNormal) {
         try {
            double salario = horasNormales * valorHoraNormal + horasExtrasDiurnas * valorHoraNormal * 1.15 + horasExtrasNocturnas * valorHoraNormal *1.35;
-           return ("El salario a pagar es: " + (int)salario);
+           return ( (int)salario);
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0 ;
         }
   
     }
 
     // Diseñe un algoritmo que calcule el área de un triángulo rectángulo.
-    public static String calcularAreaTriangulo(double base, double altura) {
+    public static int calcularAreaTriangulo(double base, double altura) {
         try {
             double area=  Math. pow(base , 2)+  Math. pow(altura , 2);
-            return ("El área del triángulo es: " + (int)area);
+            return ( (int)area);
             
         } catch (Exception e) {
-            return "Error: "+e.getMessage();
+            return  0;
         }
   
     }
 
     // Diseñe un algoritmo que calcule el perímetro de un cuadrado.
-    public static String calcularPerimetroCuadrado(double lado) {
+    public static int calcularPerimetroCuadrado(double lado) {
         try {
             double perimetro = 4 * lado;
-            return ("El perímetro del cuadrado es: " + (int)perimetro);
+            return ( (int)perimetro);
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
 
     }
 
     // Diseñe un algoritmo que calcule el volumen de un cilindro.
-    public static String calcularVolumenCilindro(double radio, double altura) {
+    public static int calcularVolumenCilindro(double radio, double altura) {
         try {
             double volumen = Math.PI * Math.pow(radio, 2) * altura;
-            return ("El volumen del cilindro es: " + (int)volumen);
+            return ( (int)volumen);
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
         
     }
 
     // Diseñe un algoritmo que calcule el área del círculo. El radio se pide por teclado.
-    public static String calcularAreaCirculo(double radio) {
+    public static int calcularAreaCirculo(double radio) {
         try {
             double area = Math.PI * Math.pow(radio, 2);
-            return ("El área del círculo es: " + (int)area);
+            return ( + (int)area);
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return 0;
         }
 
     }
