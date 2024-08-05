@@ -76,7 +76,8 @@ public class App {
     // retorne el valor en formato string (pesoEnKg + "|" + pesoEnToneladas)
     public static String calcularPesoNeto(double peso) {
         try {
-            int pesoEnToneladas = peso / 1000;
+            double pesoEnKg = peso / 1000;
+            double pesoEnToneladas = peso / 100000;
         return ((int)pesoEnKg + "|" + (int)pesoEnToneladas );
         } catch (Exception e) {
             return "0|0";
