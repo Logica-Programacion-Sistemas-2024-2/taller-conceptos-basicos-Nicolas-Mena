@@ -3,6 +3,7 @@
  */
 package sistemas;
 
+
 public class App {
     
     // Diseñe un algoritmo para saludar al usuario: Hola usuario. El nombre del usuario es ingresado por teclado
@@ -20,7 +21,7 @@ public class App {
         try {
         double mtseg = kmPorSeg * 1000 ;
          
-        double mthora = mtseg * 3600;
+        double mthora = kmPorSeg * 3600000;
         
         return (mtseg + "|" +mthora);
          
@@ -81,8 +82,8 @@ public class App {
     // retorne el valor en formato string (pesoEnKg + "|" + pesoEnToneladas)
     public static String calcularPesoNeto(double peso) {
         try {
-            int pesoEnKg = (int)peso;
-            int pesoEnToneladas = (int)pesoEnKg / 1000;
+            int pesoEnKg = (int)peso/1000;
+            int pesoEnToneladas = (int)pesoEnKg / 1000000;
             return ((int)pesoEnKg + "|" + (int)pesoEnToneladas );
         } catch (Exception e) {
             return "0|0";
@@ -93,7 +94,7 @@ public class App {
     // Diseñe un algoritmo que calcule el tiempo necesario para alcanzar un destino dado por el usuario quien además ingresará la velocidad promedio en kilómetros/hora y la distancia en kilómetros
     public static int calcularTiempoViaje(double distancia, double velocidadKilometros, double velocidadHora) {
         try {
-            double tiempo = distancia * velocidadKilometros / velocidadHora;
+            double tiempo = distancia * velocidadHora / velocidadKilometros;
             return ( (int)tiempo );
         } catch (Exception e) {
             return 0;
@@ -104,7 +105,7 @@ public class App {
     // Un avión necesita cargar combustible para cubrir sus rutas programadas en el día. Cada 0.2 toneladas de combustible puede recorrer 60.8 Km en velocidad de crucero. En el despegue el avión consume 1.2 toneladas de combustible y en el aterrizaje consume 0.4 toneladas. El piloto desea un algoritmo que ingresando 4 rutas y el kilometraje de cada ruta obtenga la cantidad de combustible que debe tanquear en el avión.
     public static int calcularCombustible(double ruta1, double ruta2, double ruta3, double ruta4)  {
         try {
-            double combustible = (ruta1 + ruta2 + ruta3 + ruta4) * 0.2+((1.2 + 0.4)* 4);
+            double combustible = (ruta1 + ruta2 + ruta3 + ruta4) / 0.608 * 0.2 + (1.2 + 0.4)*4;
             return ((int)combustible );
         
         } catch (Exception e) {
@@ -116,7 +117,7 @@ public class App {
     // Diseñar un algoritmo que calcule el peso neto en la luna de un peso terrestre ingresado por teclado. La gravedad de la Luna es de alrededor del 17% más que la de la tierra
     public static int calcularPesoLunar(double pesoTierra) {
         try {
-            double pesoLuna = pesoTierra * 0.17;
+            double pesoLuna = pesoTierra * 1.17;
             return ((int)pesoLuna );
         } catch (Exception e) {
             return 0;
@@ -142,7 +143,7 @@ public class App {
         double impuesto = costoComida * 0.08;
         double propina = costoComida * 0.10;
         double total = costoComida + impuesto + propina;
-        return ( propina + "|" + impuesto + "|" + total);
+        return ( (int)propina + "|" + (int)impuesto + "|" + (int)total);
 
         } catch (Exception e) {
             return -1 + "|" + -1 + "|" + -1;
@@ -165,8 +166,16 @@ public class App {
     public static int calcularNotaFinal(double nota1, double nota2, double nota3, double nota4, double nota5,
                                         double porcentaje1, double porcentaje2, double porcentaje3, double porcentaje4, double porcentaje5) {
         try {
+            if (
+                porcentaje1 == 0 || porcentaje2 == 0 || porcentaje3 == 0 || porcentaje4 == 0 || porcentaje5 == 0
+            )
+            {
+                return -1;
+            }
+            else{
             double notaFinal = (nota1 / porcentaje1 + nota2 / porcentaje2 + nota3 / porcentaje3 + nota4 / porcentaje4 + nota5 / porcentaje5) / 5;
             return ((int)notaFinal);
+        }
 
         } catch (Exception e) {
             return 0;
@@ -224,7 +233,7 @@ public class App {
     // Diseñe un algoritmo que calcule el volumen de un cilindro.
     public static int calcularVolumenCilindro(double radio, double altura) {
         try {
-            double volumen = Math.PI * Math.pow(radio, 2) * altura;
+            double volumen = 3.14 * radio*radio * altura;
             return ( (int)volumen);
         } catch (Exception e) {
             return 0;
@@ -235,7 +244,8 @@ public class App {
     // Diseñe un algoritmo que calcule el área del círculo. El radio se pide por teclado.
     public static int calcularAreaCirculo(double radio) {
         try {
-            double area = Math.PI * Math.pow(radio, 2);
+            
+            double area = (3.14 * radio*radio);
             return ( (int)area);
         } catch (Exception e) {
             return 0;
