@@ -18,9 +18,9 @@ public class App {
     // retorne el valor en formato string (metrosPorSeg + "|" + metrosPorHora)
     public static String convertirVelocidad(double kmPorSeg) {
         try {
-        int mtseg = (int)kmPorSeg * 1000 ;
+        double mtseg = kmPorSeg * 1000 ;
          
-        int mthora = mtseg * 3600;
+        double mthora = mtseg * 3600;
         
         return (mtseg + "|" +mthora);
          
@@ -83,7 +83,7 @@ public class App {
         try {
             int pesoEnKg = (int)peso;
             int pesoEnToneladas = (int)pesoEnKg / 1000;
-            return ((int)pesoEnKg + " |" + (int)pesoEnToneladas );
+            return ((int)pesoEnKg + "|" + (int)pesoEnToneladas );
         } catch (Exception e) {
             return "0|0";
         }
@@ -93,8 +93,8 @@ public class App {
     // Diseñe un algoritmo que calcule el tiempo necesario para alcanzar un destino dado por el usuario quien además ingresará la velocidad promedio en kilómetros/hora y la distancia en kilómetros
     public static int calcularTiempoViaje(double distancia, double velocidadKilometros, double velocidadHora) {
         try {
-            int tiempo = (int)distancia / (int)velocidadKilometros;
-            return ( tiempo );
+            double tiempo = distancia * velocidadKilometros / velocidadHora;
+            return ( (int)tiempo );
         } catch (Exception e) {
             return 0;
         }
@@ -104,7 +104,7 @@ public class App {
     // Un avión necesita cargar combustible para cubrir sus rutas programadas en el día. Cada 0.2 toneladas de combustible puede recorrer 60.8 Km en velocidad de crucero. En el despegue el avión consume 1.2 toneladas de combustible y en el aterrizaje consume 0.4 toneladas. El piloto desea un algoritmo que ingresando 4 rutas y el kilometraje de cada ruta obtenga la cantidad de combustible que debe tanquear en el avión.
     public static int calcularCombustible(double ruta1, double ruta2, double ruta3, double ruta4)  {
         try {
-            int combustible = ((int)ruta1 + (int)ruta2 + (int)ruta3 + (int)ruta4) * (int)0.2+(((int)1.2 + (int)0.4)* 4);
+            double combustible = (ruta1 + ruta2 + ruta3 + ruta4) * 0.2+((1.2 + 0.4)* 4);
             return ((int)combustible );
         
         } catch (Exception e) {
@@ -116,8 +116,8 @@ public class App {
     // Diseñar un algoritmo que calcule el peso neto en la luna de un peso terrestre ingresado por teclado. La gravedad de la Luna es de alrededor del 17% más que la de la tierra
     public static int calcularPesoLunar(double pesoTierra) {
         try {
-            int pesoLuna = (int)pesoTierra * (int)0.17;
-            return (pesoLuna );
+            double pesoLuna = pesoTierra * 0.17;
+            return ((int)pesoLuna );
         } catch (Exception e) {
             return 0;
         }
@@ -139,9 +139,9 @@ public class App {
     // retorne el valor en formato string (propina + "|" + impuesto + "|" + total)
     public static String calcularCuentaRestaurante(double costoComida) {
         try {
-        int impuesto = (int)costoComida * (int)0.08;
-        int propina = (int)costoComida * (int)0.10;
-        int total = (int)costoComida + impuesto + propina;
+        double impuesto = costoComida * 0.08;
+        double propina = costoComida * 0.10;
+        double total = costoComida + impuesto + propina;
         return ( propina + "|" + impuesto + "|" + total);
 
         } catch (Exception e) {
@@ -165,8 +165,8 @@ public class App {
     public static int calcularNotaFinal(double nota1, double nota2, double nota3, double nota4, double nota5,
                                         double porcentaje1, double porcentaje2, double porcentaje3, double porcentaje4, double porcentaje5) {
         try {
-            int notaFinal = ((int)nota1 / (int)porcentaje1 + (int)nota2 / (int)porcentaje2 + (int)nota3 / (int)porcentaje3 + (int)nota4 / (int)porcentaje4 + (int)nota5 / (int)porcentaje5) / 5;
-            return (notaFinal);
+            double notaFinal = (nota1 / porcentaje1 + nota2 / porcentaje2 + nota3 / porcentaje3 + nota4 / porcentaje4 + nota5 / porcentaje5) / 5;
+            return ((int)notaFinal);
 
         } catch (Exception e) {
             return 0;
@@ -178,9 +178,9 @@ public class App {
     public static int calcularNotaNecesaria(double porcentaje1, double porcentaje2, double porcentaje3, double porcentaje4, double porcentaje5, double nota1, double nota2, double nota3, double nota4) {
         try {
            
-            int notaNecesaria = (int)3 - ((int)nota1 * (int)porcentaje1 + (int)nota2 * (int)porcentaje2 + (int)nota3 * (int)porcentaje3 + (int)nota4 * (int)porcentaje4) / (int)porcentaje5;
+            double notaNecesaria = 3 - (nota1 * porcentaje1 + nota2 * porcentaje2 + nota3 * porcentaje3 + nota4 * porcentaje4) / porcentaje5;
 
-            return (notaNecesaria);
+            return ((int)notaNecesaria);
         
         } catch (Exception e) {
             return 0;
@@ -201,7 +201,7 @@ public class App {
     // Diseñe un algoritmo que calcule el área de un triángulo rectángulo.
     public static int calcularAreaTriangulo(double base, double altura) {
         try {
-            double area=  Math. pow(base , 2)+  Math. pow(altura , 2);
+            double area = (base * altura) / 2;
             return ( (int)area);
             
         } catch (Exception e) {
